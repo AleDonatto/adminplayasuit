@@ -1,6 +1,7 @@
 import { Head } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { CrearHabitaciones } from '@/Components/Habitaciones/CrearHabitaciones';
+import { ListaHabitaciones } from '@/Components/Habitaciones/ListaHabitaciones';
 
 export default function Habitaciones(props){
     return (
@@ -14,6 +15,11 @@ export default function Habitaciones(props){
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900 font-bold text-xl">Agregar Habitaciones</div>
                         <CrearHabitaciones />
+                    </div>
+
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-10">
+                        <div className="p-6 text-gray-900 font-bold text-xl">Lista de Habitaciones</div>
+                        <ListaHabitaciones />
                     </div>
                 </div>
             </div>
