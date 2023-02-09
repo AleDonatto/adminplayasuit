@@ -20,8 +20,10 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "react-data-table-component": "^7.5.3",
         "react-dropzone-uploader": "^2.11.0",
         "react-files-uploading": "^1.0.2",
-        "react-images-uploading": "^3.1.7"
+        "react-images-uploading": "^3.1.7",
+        "styled-components": "^5.3.6"
     }
 }

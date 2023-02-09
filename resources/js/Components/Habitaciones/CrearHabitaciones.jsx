@@ -104,52 +104,45 @@ export const CrearHabitaciones = () => {
                             <label htmlFor="vista" className="mb-1 block text-base font-semibold text-[#07074D]">Agrega una imagen de la habitacion:</label>
                         </div>
                         <div className="bg-gray-100 rounded-lg p-5">
-                            {/*<Dropzone
-                                onChangeStatus={handleChangeStatus}
-                                maxFiles={1}
-                                inputContent="Agregar imagen"
-                                accept="image/*"
-                                styles={{ dropzone: { minHeight: 200, maxHeight: 250 } }}
-                            />*/}   
                             <ImageUploading
-        multiple
-        value={images}
-        onChange={onChange}
-        maxNumber={maxNumber}
-        dataURLKey="data_url"
-      >
-        {({
-          imageList,
-          onImageUpload,
-          onImageRemoveAll,
-          onImageUpdate,
-          onImageRemove,
-          isDragging,
-          dragProps,
-        }) => (
-          // write your building UI
-          <div className="upload__image-wrapper">
-            <button
-              style={isDragging ? { color: 'red' } : undefined}
-              onClick={onImageUpload}
-              {...dragProps}
-            >
-              Click or Drop here
-            </button>
-            &nbsp;
-            <button onClick={onImageRemoveAll}>Remove all images</button>
-            {imageList.map((image, index) => (
-              <div key={index} className="image-item">
-                <img src={image['data_url']} alt="" width="100" />
-                <div className="image-item__btn-wrapper">
-                  <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Remove</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </ImageUploading>
+                                multiple
+                                value={images}
+                                onChange={onChange}
+                                maxNumber={maxNumber}
+                                dataURLKey="data_url"
+                            >
+                                {({
+                                    imageList,
+                                    onImageUpload,
+                                    onImageRemoveAll,
+                                    onImageUpdate,
+                                    onImageRemove,
+                                    isDragging,
+                                    dragProps,
+                                }) => (
+                                // write your building UI
+                                    <div className="upload__image-wrapper">
+                                        <button
+                                            style={isDragging ? { color: 'red' } : undefined}
+                                            onClick={onImageUpload}
+                                            {...dragProps}
+                                        >
+                                            Click or Drop here
+                                        </button>
+                                        &nbsp;
+                                        <button onClick={onImageRemoveAll}>Remove all images</button>
+                                        {imageList.map((image, index) => (
+                                        <div key={index} className="image-item">
+                                            <img src={image['data_url']} alt="" width="100" />
+                                            <div className="image-item__btn-wrapper">
+                                            <button onClick={() => onImageUpdate(index)}>Update</button>
+                                            <button onClick={() => onImageRemove(index)}>Remove</button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                )}
+                            </ImageUploading>
                         </div>
                     </div>
                     <div className="w-full px-3 sm:w-1/2">
