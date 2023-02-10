@@ -1,11 +1,11 @@
 import React from 'react'
 import DataTable from 'react-data-table-component';
-import { useMemo } from 'react';
+import { useMemo,useState, useEffect } from 'react';
 
 const columns = [
     {
         name: 'Nombre',
-        selector: row => row.title,
+        selector: row => row.nombre,
     },
     {
         name: 'Hora Salida',
@@ -36,13 +36,8 @@ const columns = [
 ];
 
 const data = [
-    {
-        id: 1,
-        title: 'Beetlejuice',
-        year: '1988',
-    },
+    {title: 'pruebas'}
 ]
-
 const customStyles = {
     rows: {
         style: {
@@ -79,6 +74,21 @@ const state = {
 
 
 export const ListaHabitaciones = () => {
+
+    const [habitaciones, sethabitaciones] = useState([])
+
+    useEffect(() => {
+        
+        axios.get('/habitaciones/list')
+        .then(res => {
+            sethabitaciones(res.data.habitaciones)
+            //console.log(res.data)
+        })
+        .catch(err => {
+            console.log(err.response)
+        })
+    }, [])
+    
     return (
         <div className="px-6">
             {/*
@@ -283,7 +293,7 @@ export const ListaHabitaciones = () => {
             <DataTable
                 title="Movie List"
                 columns={columns}
-                data={data}
+                data={habitaciones}
                 customStyles={customStyles} 
                 pagination
                 highlightOnHover

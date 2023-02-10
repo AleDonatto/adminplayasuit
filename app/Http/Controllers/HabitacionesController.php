@@ -29,7 +29,7 @@ class HabitacionesController extends Controller
                 'urlImage' => 'string',
             ]);
             $path = $request->urlImage;
-        }else if(!empty($request->imageH)){
+        }else if(!empty($request->file('imageH'))){
             $request->validate([
                 'imageH' => 'image|max:25600|mimes:jpeg,jpg,png,svg',
             ]);
@@ -64,6 +64,13 @@ class HabitacionesController extends Controller
     }
 
     public function ListHabitaciones(){
+        $listHabitaciones = DB::table('habitaciones')
+        ->select('habitaciones.*')
+        ->orderBy('habitaciones.created_at')
+        ->get();
 
+        return response()->json([
+            'habitaciones' => $listHabitaciones
+        ]);
     }
 }
