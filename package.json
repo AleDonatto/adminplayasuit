@@ -24,6 +24,7 @@
         "react-dropzone-uploader": "^2.11.0",
         "react-files-uploading": "^1.0.2",
         "react-images-uploading": "^3.1.7",
-        "styled-components": "^5.3.6"
+        "styled-components": "^5.3.6",
+        "sweetalert2": "^11.7.1"
     }
 }

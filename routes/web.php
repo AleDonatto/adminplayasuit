@@ -5,6 +5,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\HabitacionesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +38,9 @@ Route::get('/habitaciones', function() {
 Route::get('/reservaciones', function() {
     return Inertia::render('Reservaciones');
 })->middleware(['auth', 'verified'])->name('reservaciones');
+
+Route::post('/habitaciones/create', [HabitacionesController::class, 'CreateHabitaciones'])->middleware(['auth', 'verified']);
+Route::get('/habitaciones/list', [HabitacionesController::class, 'ListHabitaciones'])->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

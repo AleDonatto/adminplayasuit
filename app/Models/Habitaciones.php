@@ -10,9 +10,9 @@ class Habitaciones extends Model
     use HasFactory;
 
     protected $table = 'habitaciones';
-    protected $primaryKey = 'idHabitaciones';
+    protected $primaryKey = 'idHabitacion';
 
-    protected $attributes = [
+    protected $fillable = [
         'nombre',
         'entrada',
         'salida',
